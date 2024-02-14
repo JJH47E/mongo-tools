@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './Converter.css'
 
 const qualifiedRegex = /^ObjectId\(\"[a-f,0-9]{24}\"\)$/
+const regex = /[a-f,0-9]{24}/
 const dateFormatOptions: Intl.DateTimeFormatOptions = {
   weekday: 'short',
   year: 'numeric',
@@ -20,7 +21,7 @@ function Converter() {
     const input = event.target.value;
     if (qualifiedRegex.test(input)) {
       setObjectId(input.substr(10, 24));
-    } else if (input.length == 24) {
+    } else if (input.length == 24 && regex.test(input)) {
       setObjectId(event.target.value);
     }
     return;

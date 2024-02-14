@@ -36,14 +36,10 @@ function Generator() {
   const [objectId, setObjectId] = useState('');
 
   const generate = () => {
-    // generate first 4 bytes
     let oid = '';
     oid += convertToHexString(Math.floor((new Date()).getTime()/1000), 4);
-    console.log(oid);
     oid += processRandom;
-    console.log(oid);
     oid += convertToHexString(incrementingCounter++, 3);
-    console.log(oid);
     setObjectId(oid);
   };
 
